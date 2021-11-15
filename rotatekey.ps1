@@ -49,7 +49,7 @@ function GetAlternateCredentialId($keyId){
 
 function AddKeyValueToDB($keyName,$keyValue, $keyVaultName){
    #Add-Type -AssemblyName "Microsoft.SqlServer.Smo,Version=21.1.18256,Culture=neutral,PublicKeyToken=89845dcd8080cc91"
-   $DBConnection = Get-AzKeyVaultSecret -VaultName $keyVaultName -Name 'DBConnection' -AsPlainText
+   $DBConnection = Get-AzKeyVaultSecret -VaultName $keyVaultName -Name '{DBConnection_SecretName}' -AsPlainText
    $sqlConn = New-Object System.Data.SqlClient.SqlConnection
    $sqlConn.ConnectionString = $DBConnection
    $sqlConn.Open()
@@ -115,4 +115,4 @@ function RoatateSecret($keyVaultName,$secretName){
     Write-Output "New access key added to Key Vault. Secret Name: $secretName"
     AddKeyValueToDB $secretName $newAccessKeyValue $keyVaultName
 }
-RoatateSecret 'tpeci-kv-lab' 'storageAccessKey'
+RoatateSecret '{KeyVault_Name}' '{StorageAccessKey_SecretName}'
