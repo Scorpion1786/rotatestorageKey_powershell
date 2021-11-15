@@ -17,3 +17,4 @@ Steps
 5. Also create a secret in keyvault which will store the DBConnection string. Get the DBConnection string from SQL Server and add here, so that it will be used to store the access
    key in DB
 6. Then Create a Azure Automation Account and add this as runbook.
+7. https://docs.microsoft.com/en-us/azure/key-vault/secrets/tutorial-rotation-dual?tabs=azurepowershell 
