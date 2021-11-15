@@ -67,7 +67,7 @@ function AddKeyValueToDB_MI($keyName,$keyValue){
    #Add-Type -AssemblyName "Microsoft.SqlServer.Smo,Version=21.1.18256,Culture=neutral,PublicKeyToken=89845dcd8080cc91"
    $resourceURI = "https://database.windows.net/"
    $tokenAuthURI = "https://127.0.0.1:41056/MSI/token/?resource=$resourceURI&api-version=2017-09-01"
-   $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="8304eed9-533a-4abf-865a-ff936fe2c29f"} -Uri $tokenAuthURI
+   $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="Managed_Identity_CLientID"} -Uri $tokenAuthURI
    $accessToken = $tokenResponse.access_token
    $SqlConnection = New-Object System.Data.SqlClient.SqlConnection
    $SqlServerName = "tpeci-dbserver"
